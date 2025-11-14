@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ar" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CityGo Event</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+  
+  </style>
+</head>
+<body class="bg-light">
+
+<!-- NAVBAR -->
+<header class="navbar-wrapper shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <span class="fs-1 fw-bold text-gradient">CityGo</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+          <li class="nav-item"><a class="nav-link active fw-semibold text-primary fs-5" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link fw-semibold text-dark fs-5" href="events.html">All Events</a></li>
+          <li class="nav-item"><a class="nav-link fw-semibold text-dark fs-5" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link fw-semibold text-dark fs-5" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="container py-5">
+
+  <!-- Event Detail Section -->
+  <article id="event-article" class="card border-0 shadow-lg rounded-4 overflow-hidden animate-fade-up bg-white">
+    <div class="position-relative">
+      <img id="event-img" class="card-img-top img-fluid" alt="Event Image" style="max-height: 450px; object-fit: cover;">
+      <span id="event-category" class="position-absolute top-0 end-0 m-3 badge bg-primary-subtle text-primary px-3 py-2 fs-6 shadow-sm rounded-pill">Category</span>
+    </div>
+    <div class="card-body p-4 p-md-5">
+      <h1 id="event-title" class="display-6 fw-bold text-primary mb-3"></h1>
+      <p class="text-muted mb-3"><i class="bi bi-calendar-event me-2 text-primary"></i><span id="event-date"></span></p>
+      <div class="d-flex flex-wrap gap-3 my-4">
+        <button class="btn btn-primary rounded-pill px-4 shadow-sm">
+          <i class="bi bi-calendar-plus me-2"></i>Add to Calendar
+        </button>
+      </div>
+
+      <section class="mb-5">
+        <h2 class="h5 fw-semibold mb-3 text-dark">Full Description</h2>
+        <p id="event-description" class="text-secondary lh-lg"></p>
+      </section>
+
+      <section class="mb-5">
+        <h3 class="h6 fw-semibold mb-3 text-dark">Location</h3>
+        <p id="event-location" class="text-secondary mb-4"></p>
+      </section>
+
+      <!-- Related Events -->
+      <section>
+        <h3 class="fw-semibold mb-4 text-dark">Related Events</h3>
+        <div class="row g-4" id="similar"></div>
+      </section>
+    </div>
+  </article>
+
+</main>
+
+<script>
+  const allEvents = [
+  {
+    title: "Motorcycle Racing Event",
+    location: "Dubai Autodrome, United Arab Emirates",
+    date: "April 5, 2025 – 4:00 PM",
+    image: "assets/imgs/sport1.jpg",
+    description: "A high-speed motorcycle race featuring professional riders competing on a challenging track filled with sharp turns and roaring engines. The event attracts motorsport fans from around the world for an unforgettable adrenaline experience.",
+    category: "Sport"
+  },
+  {
+    title: "Champions Football League",
+    location: "Wembley Stadium, London",
+    date: "April 10, 2025 – 8:00 PM",
+    image: "assets/imgs/sport2.jpg",
+    description: "One of the most anticipated football matches of the year, featuring top European teams in a high-energy atmosphere filled with fans and music.",
+    category: "Sport"
+  },
+  {
+    title: "Basketball Challenge",
+    location: "Los Angeles Sports Arena, USA",
+    date: "May 22, 2025 – 6:00 PM",
+    image: "assets/imgs/sport3.jpg",
+    description: "A fast-paced basketball match where teams compete in an intense indoor court surrounded by cheering fans.",
+    category: "Sport"
+  },
+  {
+    title: "Summer Beats Festival",
+    location: "Barcelona, Spain",
+    date: "July 20, 2025 – 8:00 PM",
+    image: "assets/imgs/music1.jpg",
+    description: "A colorful outdoor concert featuring international DJs and pop stars performing by the beach under the summer sky.",
+    category: "Music"
+  },
+  {
+    title: "Classical Harmony Evening",
+    location: "Vienna Opera House, Austria",
+    date: "January 28, 2025 – 7:00 PM",
+    image: "assets/imgs/music2.jpg",
+    description: "A graceful classical music concert featuring orchestra and solo violinists performing timeless masterpieces.",
+    category: "Music"
+  },
+  {
+    title: "Sunset Melody Festival",
+    location: "Barcelona Beach, Spain",
+    date: "July 19, 2025 – 7:30 PM",
+    image: "assets/imgs/music3.jpg",
+    description: "A magical open-air music festival by the sea where famous DJs and pop artists perform as the sun sets. The colorful lights and beach atmosphere create an unforgettable summer night.",
+    category: "Music"
+  },
+  {
+    title: "Electric Night Concert",
+    location: "Tokyo Dome, Japan",
+    date: "November 2, 2025 – 9:00 PM",
+    image: "assets/imgs/music4.jpg",
+    description: "A high-energy concert filled with neon lights, electronic beats, and thousands of fans dancing to the rhythm of live music performed by international artists.",
+    category: "Music"
+  },
+  {
+    title: "Dinner Moments",
+    location: "SkyView Restaurant, Dubai",
+    date: "April 8, 2025 – 7:00 PM",
+    image: "assets/imgs/food1.jpg",
+    description: "A cozy dinner scene where friends enjoy delicious meals together in a modern restaurant with warm lighting..",
+    category: "Food"
+  },
+  {
+    title: "The Golden Table Dinner",
+    location: "The Golden Palm Restaurant, Dubai Marina",
+    date: "March 18, 2025 – 8:00 PM",
+    image: "assets/imgs/food2.jpg",
+    description: "Guests enjoy a luxurious dining experience in a modern seaside restaurant. Soft lights, elegant décor, and delicious international dishes create a warm and relaxing atmosphere.",
+    category: "Food"
+  },
+  {
+    title: "Coffee & Conversations",
+    location: "Café Aroma, Paris",
+    date: "February 14, 2025 – 4:00 PM",
+    image: "assets/imgs/drink1.jpg",
+    description: "A group of friends chatting and laughing while enjoying coffee and colorful fruit juices in a stylish café.",
+    category: "Drink"
+  },
+  {
+    title: "Tech Vision Meeting",
+    location: "Silicon Valley, USA",
+    date: "June 15, 2025 – 10:00 AM",
+    image: "assets/imgs/education1.jpg",
+    description: "A professional meeting for technology leaders focusing on AI development and smart solutions for the digital age.",
+    category: "Education"  
+  },
+  {
+    title: "Eco Leaders Conference",
+    location: "Geneva, Switzerland",
+    date: "August 2, 2025 – 11:00 AM",
+    image: "assets/imgs/education2.jpg",
+    description: "A green-focused meeting where environmental experts share ideas to promote sustainability and renewable energy.",
+    category: "Education"
+  }
+];
+
+let currentEvent = JSON.parse(localStorage.getItem("selectedEvent")) || allEvents[0];
+
+function renderEvent(ev) {
+  currentEvent = ev;
+  localStorage.setItem("selectedEvent", JSON.stringify(ev));
+
+  document.getElementById("event-img").src = ev.image;
+  document.getElementById("event-img").alt = ev.title;
+  document.getElementById("event-title").textContent = ev.title;
+  document.getElementById("event-date").textContent = ev.date;
+  document.getElementById("event-location").textContent = ev.location;
+  document.getElementById("event-description").textContent = ev.description;
+  document.getElementById("event-category").textContent = ev.category;
+
+  const similarContainer = document.getElementById("similar");
+  similarContainer.innerHTML = "";
+  const similarEvents = allEvents.filter(e => e.category === ev.category && e.title !== ev.title);
+
+  if (similarEvents.length > 0) {
+    similarEvents.forEach(sim => {
+      const col = document.createElement("div");
+      col.className = "col-12 col-sm-6 col-md-4 col-lg-3";
+
+      col.innerHTML = `
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 similar-card">
+          <div class="position-relative">
+            <img src="${sim.image}" class="card-img-top" alt="${sim.title}" style="height:200px; object-fit:cover;">
+            <span class="position-absolute top-0 end-0 m-2 badge bg-primary-subtle text-primary px-2 py-1">${sim.category}</span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h6 class="fw-bold mb-2 text-truncate" title="${sim.title}">${sim.title}</h6>
+            <p class="text-secondary mb-4" title="${sim.location}">${sim.location}</p>
+            <p class="text-secondary mb-4" title="${sim.date}">${sim.date}</p>
+            <p class="text-secondary fw-bold mb-4" title="${sim.category}">${sim.category}</p>
+            <a href="#" class="btn btn-outline-primary btn-sm mt-auto rounded-pill details-btn">Details</a>
+          </div>
+        </div>
+      `;
+
+      col.querySelector(".details-btn").addEventListener("click", (e) => {
+        e.preventDefault();
+        renderEvent(sim); 
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      similarContainer.appendChild(col);
+    });
+  } else {
+    similarContainer.innerHTML = `<p class="text-muted">No similar events found.</p>`;
+  }
+}
+
+renderEvent(currentEvent);
+
+</script>
+
+<button id="scrollTopBtn" title="Back to top">
+  <i class="bi bi-arrow-up"></i>
+</button>
+
+<!-- FOOTER -->
+<footer class="footer text-light py-5 mt-5">
+  <div class="container">
+    <div class="row gy-4">
+      <!-- About -->
+      <div class="col-12 col-md-4">
+        <h5 class="fw-bold mb-3">About CityGo</h5>
+        <p class="small text-light opacity-75">
+          CityGo is your central hub for local events — from culture and music to sports and education.
+        </p>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-12 col-md-4">
+        <h5 class="fw-bold mb-3">Contact Us</h5>
+        <address class="small mb-0 opacity-75">
+          Email: <a href="mailto:citygo@email.com" class="text-light text-decoration-none">CityGo@email.com</a><br>
+          Phone: <span class="text-light">012-3456789</span>
+        </address>
+      </div>
+
+      <!-- Social -->
+      <div class="col-12 col-md-4">
+        <h5 class="fw-bold mb-3">Follow Us</h5>
+        <div class="d-flex align-items-center gap-3 social-icons">
+          <a href="#" class="text-light fs-5"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-light fs-5"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-light fs-5"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-light fs-5"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-secondary my-4 opacity-25" />
+
+    <div class="text-center small opacity-75">
+      © 2026 CityGo Events Directory — All rights reserved.
+    </div>
+  </div>
+</footer>
+<script src="assets/JS/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

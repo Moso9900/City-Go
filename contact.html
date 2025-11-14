@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CityGo Contact</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .flag-btn {
+      width: 32px;
+      height: 22px;
+      border-radius: 4px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      object-fit: cover;
+    }
+    .navbar .flags {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 15px;
+    }
+  </style>
+</head>
+<body class="bg-light" dir="ltr">
+
+<!-- NAVBAR -->
+<header class="navbar-wrapper shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+    <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <span class="fs-1 fw-bold text-gradient">CityGo</span>
+      </a>
+
+      <!-- Toggler -->
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+          <li class="nav-item">
+            <a class="nav-link active fw-semibold text-primary fs-5" href="index.html" data-key="home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-dark fs-5" href="events.html" data-key="events">All Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-dark fs-5" href="about.html" data-key="about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-dark fs-5" href="contact.html" data-key="contact">Contact</a>
+          </li>
+        </ul>
+
+        <!-- Search -->
+        <form class="d-flex align-items-center" role="search" action="events.html">
+          <input class="form-control me-2 rounded-pill px-3" name="q" placeholder="Search for an event..." aria-label="Search" data-key="searchPlaceholder">
+          <button class="btn btn-gradient rounded-pill px-4 fw-semibold" type="submit" data-key="searchBtn">Search</button>
+        </form>
+
+        <!-- Flags -->
+        <div class="flags ms-3">
+          <img src="https://flagcdn.com/w20/us.png" class="flag-btn" id="enFlag" alt="English">
+          <img src="https://flagcdn.com/w20/sy.png" class="flag-btn" id="arFlag" alt="Arabic">
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- CONTACT SECTION -->
+<main class="contact-section container py-5">
+  <div class="text-center mb-5">
+    <h1 class="fw-bold section-title mb-3" data-key="contactTitle">Contact Us</h1>
+    <p class="text-muted lead mx-auto" style="max-width: 700px;" data-key="contactSubtitle">
+      Have a question or feedback? We’d love to hear from you.  
+      Fill out the form or reach us through our social channels.
+    </p>
+  </div>
+
+  <div id="alertPlaceholder"></div>
+
+  <div class="row g-5 align-items-start">
+    <!-- Contact Form -->
+    <div class="col-12 col-md-6">
+      <div class="card border-0 shadow-sm p-4 rounded-4 form-card">
+        <form id="contactForm" novalidate>
+          <div class="mb-3">
+            <label for="name" class="form-label fw-semibold" data-key="fullName">Full Name</label>
+            <input type="text" class="form-control rounded-3" id="name" required>
+            <div class="invalid-feedback" data-key="nameReq">Name is required.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label fw-semibold" data-key="emailLabel">Email Address</label>
+            <input type="email" class="form-control rounded-3" id="email" required>
+            <div class="invalid-feedback" data-key="emailReq">Please enter a valid email address.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="message" class="form-label fw-semibold" data-key="messageLabel">Message</label>
+            <textarea id="message" class="form-control rounded-3" rows="5" required></textarea>
+            <div class="invalid-feedback" data-key="msgReq">Message is required.</div>
+          </div>
+
+          <button type="submit" class="btn btn-primary rounded-pill px-4 py-2 fw-semibold" data-key="sendBtn">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="col-12 col-md-6">
+      <div class="contact-info ps-md-4">
+        <h5 class="fw-bold mb-3" data-key="otherWays">Other Ways to Reach Us</h5>
+        <p class="small mb-2">
+          <i class="bi bi-envelope-fill text-primary me-2"></i>
+          <strong data-key="generalEmail">General Email:</strong> CityGo@gmail.com
+        </p>
+        <p class="small mb-2">
+          <i class="bi bi-telephone-fill text-primary me-2"></i>
+          <strong data-key="phone">Phone:</strong> +963 955 444 333
+        </p>
+        <p class="small mb-2">
+          <strong data-key="followUs">Follow Us:</strong>
+        </p>
+        <div class="d-flex gap-3 social-links mt-2">
+          <a href="#" class="text-dark fs-5"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-dark fs-5"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-dark fs-5"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-dark fs-5"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer text-light py-5 mt-5">
+  <div class="container">
+    <div class="row gy-4">
+      <!-- About -->
+      <div class="col-12 col-md-4">
+        <h5 class="fw-bold mb-3" data-key="aboutCityGo">About CityGo</h5>
+        <p class="small text-light opacity-75" data-key="footerDesc">
+          CityGo is your central hub for local events — from culture and music to sports and education.
+        </p>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-12 col-md-4">
+        <h5 class="fw-bold mb-3" data-key="footerContact">Contact Us</h5>
+        <address class="small mb-0 opacity-75">
+          <span data-key="emailLabel2">Email:</span> 
+          <a href="mailto:citygo@email.com" class="text-light text-decoration-none">CityGo@email.com</a><br>
+          <span data-key="phone2">Phone:</span> 
+          <span class="text-light">012-3456789</span>
+        </address>
+      </div>
+
+      <!-- Social -->
+      <div class="col-12 col-md-4">
+        <h5 class="fw-bold mb-3" data-key="footerFollow">Follow Us</h5>
+        <div class="d-flex align-items-center gap-3 social-icons">
+          <a href="#" class="text-light fs-5"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-light fs-5"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-light fs-5"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-light fs-5"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-secondary my-4 opacity-25" />
+
+    <div class="text-center small opacity-75" data-key="rights">
+      © 2026 CityGo Events Directory — All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+  const translations = {
+    en: {
+      home: "Home",
+      events: "All Events",
+      about: "About",
+      contact: "Contact",
+      searchPlaceholder: "Search for an event...",
+      searchBtn: "Search",
+      contactTitle: "Contact Us",
+      contactSubtitle: "Have a question or feedback? We’d love to hear from you. Fill out the form or reach us through our social channels.",
+      fullName: "Full Name",
+      nameReq: "Name is required.",
+      emailLabel: "Email Address",
+      emailReq: "Please enter a valid email address.",
+      messageLabel: "Message",
+      msgReq: "Message is required.",
+      sendBtn: "Send Message",
+      otherWays: "Other Ways to Reach Us",
+      generalEmail: "General Email:",
+      phone: "Phone:",
+      followUs: "Follow Us:",
+      aboutCityGo: "About CityGo",
+      footerDesc: "CityGo is your central hub for local events — from culture and music to sports and education.",
+      footerContact: "Contact Us",
+      emailLabel2: "Email:",
+      phone2: "Phone:",
+      footerFollow: "Follow Us",
+      rights: "© 2026 CityGo Events Directory — All rights reserved."
+    },
+    ar: {
+      home: "الرئيسية",
+      events: "كل الفعاليات",
+      about: "حول",
+      contact: "اتصل بنا",
+      searchPlaceholder: "ابحث عن فعالية...",
+      searchBtn: "بحث",
+      contactTitle: "اتصل بنا",
+      contactSubtitle: "هل لديك سؤال أو ملاحظة؟ يسعدنا سماعك! املأ النموذج أو تواصل معنا عبر وسائل التواصل الاجتماعي.",
+      fullName: "الاسم الكامل",
+      nameReq: "الاسم مطلوب.",
+      emailLabel: "البريد الإلكتروني",
+      emailReq: "الرجاء إدخال بريد إلكتروني صالح.",
+      messageLabel: "الرسالة",
+      msgReq: "الرسالة مطلوبة.",
+      sendBtn: "إرسال الرسالة",
+      otherWays: "طرق أخرى للتواصل معنا",
+      generalEmail: "البريد العام:",
+      phone: "الهاتف:",
+      followUs: "تابعنا:",
+      aboutCityGo: "حول CityGo",
+      footerDesc: "تُعد CityGo مركزك الرئيسي لجميع الفعاليات المحلية — من الثقافة والموسيقى إلى الرياضة والتعليم.",
+      footerContact: "اتصل بنا",
+      emailLabel2: "البريد الإلكتروني:",
+      phone2: "الهاتف:",
+      footerFollow: "تابعنا",
+      rights: "© 2026 دليل فعاليات CityGo — جميع الحقوق محفوظة."
+    }
+  };
+
+  function setLanguage(lang) {
+    document.querySelectorAll("[data-key]").forEach(el => {
+      const key = el.getAttribute("data-key");
+      if (translations[lang][key]) {
+        if (el.placeholder !== undefined && el.tagName === "INPUT") {
+          el.placeholder = translations[lang][key];
+        } else {
+          el.textContent = translations[lang][key];
+        }
+      }
+    });
+
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  }
+
+  document.getElementById("enFlag").addEventListener("click", () => setLanguage("en"));
+  document.getElementById("arFlag").addEventListener("click", () => setLanguage("ar"));
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

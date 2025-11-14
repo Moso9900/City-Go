@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CityGo About</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    .flag-btn {
+      cursor: pointer;
+      width: 32px;
+      height: 22px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+    .navbar .flags {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+<!-- NAVBAR -->
+<header class="navbar-wrapper shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <span class="fs-1 fw-bold text-gradient">CityGo</span>
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+          <li class="nav-item"><a class="nav-link active fw-semibold fs-5" id="nav-home" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link fw-semibold fs-5" id="nav-events" href="events.html">All Events</a></li>
+          <li class="nav-item"><a class="nav-link fw-semibold fs-5" id="nav-about" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link fw-semibold fs-5" id="nav-contact" href="contact.html">Contact</a></li>
+        </ul>
+
+        <!-- Language Flags -->
+        <div class="flags me-3">
+          <img src="https://flagcdn.com/w20/us.png" id="lang-en" class="flag-btn" title="English" alt="US Flag">
+          <img src="https://flagcdn.com/w20/sy.png" id="lang-ar" class="flag-btn" title="العربية" alt="Syrian Flag">
+        </div>
+
+        <form class="d-flex align-items-center" role="search" action="events.html">
+          <input class="form-control me-2 rounded-pill px-3" id="search-placeholder" name="q" placeholder="Search for an event..." aria-label="Search">
+          <button class="btn btn-gradient rounded-pill px-4 fw-semibold" id="search-btn" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="container my-4">
+  <section class="about-section py-5 text-center">
+    <h1 id="about-title" class="fw-bold mb-3">About CityGo</h1>
+    <p id="about-desc" class="text-muted lead mx-auto" style="max-width: 700px;">
+      The goal of CityGo is to document and promote local events in an accessible way,
+      supporting community organizers and local artists to reach their audiences.
+    </p>
+
+    <h2 id="vision-title" class="fw-semibold h4 mb-3 mt-5">Our Vision</h2>
+    <p id="vision-desc" class="text-muted mx-auto" style="max-width: 600px;">
+      A vibrant city — culturally and socially active — where every event can find its audience.
+    </p>
+  </section>
+
+ 
+
+  <section class="event-policy-section py-5">
+    <div class="text-center mb-4">
+      <h2 id="policy-title" class="fw-bold mb-3">Event Publication Policies (Summary)</h2>
+      <p id="policy-desc" class="text-muted mx-auto" style="max-width: 700px;">
+        To maintain a fair and community-oriented environment, all submitted events must follow the guidelines below.
+      </p>
+    </div>
+
+    <ul class="list-unstyled policy-list mx-auto" style="max-width: 750px;">
+      <li class="policy-item d-flex align-items-start p-3 rounded-4 mb-3 shadow-sm">
+        <div class="icon-box me-3 flex-shrink-0"><i class="bi bi-people-fill text-primary fs-4"></i></div>
+        <div>
+          <h5 id="policy1-title" class="fw-semibold mb-1">Public or Clearly Defined Events</h5>
+          <p id="policy1-desc" class="text-muted small mb-0">Events should be open to the public or include clearly stated participation conditions.</p>
+        </div>
+      </li>
+      <li class="policy-item d-flex align-items-start p-3 rounded-4 mb-3 shadow-sm">
+        <div class="icon-box me-3 flex-shrink-0"><i class="bi bi-shield-exclamation text-danger fs-4"></i></div>
+        <div>
+          <h5 id="policy2-title" class="fw-semibold mb-1">No Political or Unauthorized Commercial Content</h5>
+          <p id="policy2-desc" class="text-muted small mb-0">Political party content or unapproved commercial advertising is not permitted.</p>
+        </div>
+      </li>
+      <li class="policy-item d-flex align-items-start p-3 rounded-4 shadow-sm">
+        <div class="icon-box me-3 flex-shrink-0"><i class="bi bi-calendar-check text-success fs-4"></i></div>
+        <div>
+          <h5 id="policy3-title" class="fw-semibold mb-1">Provide Clear Event Details</h5>
+          <p id="policy3-desc" class="text-muted small mb-0">Each event must include a clear description, date, and location for approval.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+</main>
+
+<footer class="footer text-light py-5 mt-5 bg-dark">
+  <div class="container text-center small">
+    © 2026 CityGo Events Directory — All rights reserved.
+  </div>
+</footer>
+
+<script>
+  const translations = {
+    en: {
+      dir: "ltr",
+      "nav-home": "Home",
+      "nav-events": "All Events",
+      "nav-about": "About",
+      "nav-contact": "Contact",
+      "search-placeholder": "Search for an event...",
+      "search-btn": "Search",
+      "about-title": "About CityGo",
+      "about-desc": "The goal of CityGo is to document and promote local events in an accessible way, supporting community organizers and local artists to reach their audiences.",
+      "vision-title": "Our Vision",
+      "vision-desc": "A vibrant city — culturally and socially active — where every event can find its audience.",
+      "team-title": "Our Team & Partners",
+      "policy-title": "Event Publication Policies (Summary)",
+      "policy-desc": "To maintain a fair and community-oriented environment, all submitted events must follow the guidelines below.",
+      "policy1-title": "Public or Clearly Defined Events",
+      "policy1-desc": "Events should be open to the public or include clearly stated participation conditions.",
+      "policy2-title": "No Political or Unauthorized Commercial Content",
+      "policy2-desc": "Political party content or unapproved commercial advertising is not permitted.",
+      "policy3-title": "Provide Clear Event Details",
+      "policy3-desc": "Each event must include a clear description, date, and location for approval."
+    },
+    ar: {
+      dir: "rtl",
+      "nav-home": "الرئيسية",
+      "nav-events": "كل الفعاليات",
+      "nav-about": "من نحن",
+      "nav-contact": "اتصل بنا",
+      "search-placeholder": "ابحث عن فعالية...",
+      "search-btn": "بحث",
+      "about-title": "حول CityGo",
+      "about-desc": "هدف CityGo هو توثيق وترويج الفعاليات المحلية بطريقة سهلة الوصول، لدعم منظمي المجتمع والفنانين المحليين للوصول إلى جمهورهم.",
+      "vision-title": "رؤيتنا",
+      "vision-desc": "مدينة نابضة بالحياة — ثقافيًا واجتماعيًا — حيث تجد كل فعالية جمهورها.",
+      "team-title": "فريقنا وشركاؤنا",
+      "policy-title": "سياسات نشر الفعاليات (ملخص)",
+      "policy-desc": "للحفاظ على بيئة عادلة ومجتمعية، يجب أن تتبع جميع الفعاليات المقدمة الإرشادات التالية.",
+      "policy1-title": "فعاليات عامة أو محددة بوضوح",
+      "policy1-desc": "يجب أن تكون الفعاليات مفتوحة للجمهور أو تتضمن شروط مشاركة واضحة.",
+      "policy2-title": "منع المحتوى السياسي أو التجاري غير المصرّح",
+      "policy2-desc": "لا يُسمح بالمحتوى الحزبي أو الإعلانات التجارية غير المصرّح بها.",
+      "policy3-title": "توفير تفاصيل واضحة عن الفعالية",
+      "policy3-desc": "يجب أن تتضمن كل فعالية وصفًا واضحًا وتاريخًا وموقعًا للموافقة عليها."
+    }
+  };
+
+  function setLanguage(lang) {
+    const t = translations[lang];
+    document.documentElement.dir = t.dir;
+    document.documentElement.lang = lang;
+    for (const id in t) {
+      const el = document.getElementById(id);
+      if (el) {
+        if (id === "search-placeholder") el.placeholder = t[id];
+        else el.textContent = t[id];
+      }
+    }
+  }
+
+  document.getElementById("lang-en").addEventListener("click", () => setLanguage("en"));
+  document.getElementById("lang-ar").addEventListener("click", () => setLanguage("ar"));
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

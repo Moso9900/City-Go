@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="ar" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CityGo Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .flag-btn {
+      cursor: pointer;
+      width: 32px;
+      height: 22px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      object-fit: cover;
+      transition: transform 0.2s;
+    }
+    .flag-btn:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+<!-- NAVBAR -->
+<header class="navbar-wrapper shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white py-1 fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <span class="fs-1 fw-bold text-gradient" data-i18n="brand">CityGo</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+          <li class="nav-item">
+            <a class="nav-link active fw-semibold text-primary" href="index.html" data-i18n="home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-dark" href="events.html" data-i18n="allEvents">All Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-dark" href="about.html" data-i18n="about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-dark" href="contact.html" data-i18n="contact">Contact</a>
+          </li>
+        </ul>
+
+        <!-- Search -->
+        <form class="d-flex align-items-center me-3" role="search" action="events.html">
+          <input class="form-control me-2 rounded-pill px-3" name="q" placeholder="Search for an event..." aria-label="Search" data-i18n-placeholder="searchPlaceholder">
+          <button class="btn btn-gradient rounded-pill px-4 fw-semibold" type="submit" data-i18n="search">Search</button>
+        </form>
+
+        <!-- Language Switch -->
+        <div class="d-flex align-items-center gap-2">
+          <img src="https://flagcdn.com/w20/sy.png" class="flag-btn" id="flag-ar" title="العربية">
+          <img src="https://flagcdn.com/w20/us.png" class="flag-btn" id="flag-en" title="English">
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+
+
+
+<main class="container my-4">
+
+  <!-- Featured Events Section -->
+  <section class="featured-events py-5 mb-5">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5 section-title" data-i18n="featuredTitle">Featured Events This Week</h2>
+      <!-- Carousel code unchanged -->
+      <div id="featuredCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <!-- المحتوى كما هو بدون حذف -->
+          <div class="carousel-item active">
+            <div class="position-relative event-slide">
+              <img src="assets/imgs/music3.jpg" class="d-block w-100 h-100 object-fit-cover rounded shadow-lg" alt="Sunset Melody Festival">
+              <div class="carousel-caption text-start bg-dark bg-opacity-50 p-4 rounded animate-caption">
+                <h3 class="h4 fw-bold text-white mb-2">Sunset Melody Festival</h3>
+                <p class="small mb-1">Syria-homs</p>
+                <p class="small mb-1">July 19, 2025 – 7:30 PM</p>
+                <p class="mb-3">A magical open-air music festival by the sea where famous DJs and pop artists perform as the sun sets.</p>
+                <button class="btn btn-gradient btn-sm rounded-pill" onclick="openFeaturedEvent(0)">Details</button>
+                <span class="badge bg-success ms-2">Music</span>
+              </div>
+            </div>
+          </div>
+          <!-- بقية العناصر كما هي -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Categories Section -->
+  <section class="quick-categories py-5 mb-5">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-4 section-title" data-i18n="categories">Quick Categories</h2>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="events.html?category=sport" class="category-btn" data-i18n="sport">Sport</a>
+        <a href="events.html?category=music" class="category-btn" data-i18n="music">Music</a>
+        <a href="events.html?category=food" class="category-btn" data-i18n="food">Food</a>
+        <a href="events.html?category=drink" class="category-btn" data-i18n="drink">Drink</a>
+        <a href="events.html?category=education" class="category-btn" data-i18n="education">Education</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Latest Events Section --> 
+  <section class="latest-events py-5">
+    <div class="container">
+      <h2 class="fw-bold mb-4 section-title text-center">Latest Events</h2>
+      <div class="row g-4" id="latestGrid"></div>
+    </div>
+  </section>
+
+</main>
+
+
+<script>
+  const storedEvents = JSON.parse(localStorage.getItem("allEvents")) || [];
+  if (storedEvents.length === 0) {
+    const allEvents = [
+      { title: "Motorcycle Racing Event", location: "Syria-homs", date: "April 5, 2025 – 4:00 PM", image: "assets/imgs/sport1.jpg", description: "A high-speed motorcycle race featuring professional riders competing on a challenging track filled with sharp turns and roaring engines. The event attracts motorsport fans from around the world for an unforgettable adrenaline experience.", category: "Sport" },
+      { title: "Champions Football League", location: "Syria-Aleppo", date: "April 10, 2025 – 8:00 PM", image: "assets/imgs/sport2.jpg", description: "One of the most anticipated football matches of the year, featuring top European teams in a high-energy atmosphere filled with fans and music.", category: "Sport" },
+      { title: "Basketball Challenge", location: "Syria-Daraa", date: "May 22, 2025 – 6:00 PM", image: "assets/imgs/sport3.jpg", description: "A fast-paced basketball match where teams compete in an intense indoor court surrounded by cheering fans.", category: "Sport" },
+      { title: "Summer Beats Festival", location: "Syria-Hama", date: "July 20, 2025 – 8:00 PM", image: "assets/imgs/music1.jpg", description: "A colorful outdoor concert featuring international DJs and pop stars performing by the beach under the summer sky.", category: "Music" },
+      { title: "Classical Harmony Evening", location: "Syria-Damascus", date: "January 28, 2025 – 7:00 PM", image: "assets/imgs/music2.jpg", description: "A graceful classical music concert featuring orchestra and solo violinists performing timeless masterpieces.", category: "Music" },
+      { title: "Sunset Melody Festival", location: "Syria-Quneitra", date: "July 19, 2025 – 7:30 PM", image: "assets/imgs/music3.jpg", description: "A magical open-air music festival by the sea where famous DJs and pop artists perform as the sun sets.", category: "Music" },
+      { title: "Electric Night Concert", location: "Syria-Suwatda", date: "November 2, 2025 – 9:00 PM", image: "assets/imgs/music4.jpg", description: "A high-energy concert filled with neon lights and electronic beats performed by international artists.", category: "Music" },
+      { title: "Dinner Moments", location: "Syria", date: "April 8, 2025 – 7:00 PM", image: "assets/imgs/food1.jpg", description: "A cozy dinner scene where friends enjoy delicious meals together in a modern restaurant with warm lighting.", category: "Food" },
+      { title: "The Golden Table Dinner", location: "Homs", date: "March 18, 2025 – 8:00 PM", image: "assets/imgs/food2.jpg", description: "Guests enjoy a luxurious dining experience in a seaside restaurant with elegant décor.", category: "Food" },
+      { title: "Coffee & Conversations", location: "Damascus", date: "February 14, 2025 – 4:00 PM", image: "assets/imgs/drink1.jpg", description: "Friends chatting and laughing while enjoying coffee and juices in a stylish café.", category: "Drink" },
+      { title: "Tech Vision Meeting", location: "Aleppo", date: "June 15, 2025 – 10:00 AM", image: "assets/imgs/education1.jpg", description: "A professional meeting for technology leaders focusing on AI and smart solutions.", category: "Education" },
+      { title: "Eco Leaders Conference", location: "Hama", date: "August 2, 2025 – 11:00 AM", image: "assets/imgs/education2.jpg", description: "Environmental experts share ideas to promote sustainability and renewable energy.", category: "Education" }
+    ];
+    localStorage.setItem("allEvents", JSON.stringify(allEvents));
+  }
+
+  const events = JSON.parse(localStorage.getItem("allEvents")) || [];
+  const latestFive = events.slice(-5).reverse(); 
+
+  const container = document.getElementById("latestGrid");
+  container.innerHTML = latestFive.map((ev, index) => `
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="event-card card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
+        <img src="${ev.image}" class="card-img-top img-fluid" alt="${ev.title}">
+        <div class="card-body d-flex flex-column">
+          <h3 class="h6 fw-bold mb-1">${ev.title}</h3>
+          <p class="small text-muted mb-1">${ev.location}</p>
+          <p class="small text-muted mb-2">${ev.date}</p>
+          <p class="card-text small flex-grow-1">${ev.description}</p>
+          <div class="mt-3 d-flex justify-content-between align-items-center">
+            <button class="btn btn-outline-primary btn-sm rounded-pill px-3" onclick="openEvent(${events.indexOf(ev)})">Details</button>
+            <span class="badge bg-info text-dark px-3 py-2 rounded-pill">${ev.category}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  function openEvent(index) {
+    const allEvents = JSON.parse(localStorage.getItem("allEvents")) || [];
+    const selected = allEvents[index];
+    if (selected) {
+      localStorage.setItem("selectedEvent", JSON.stringify(selected));
+      window.location.href = "event.html";
+    }
+  }
+
+  // بيانات الفعاليات المميزة
+  const featuredEvents = [
+    {
+      title: "Sunset Melody Festival",
+      location: "Syria,Homs",
+      date: "July 19, 2025 – 7:30 PM",
+      image: "assets/imgs/music3.jpg",
+      description: "A magical open-air music festival by the sea where famous DJs and pop artists perform as the sun sets. The colorful lights and beach atmosphere create an unforgettable summer night.",
+      category: "Music"
+    },
+    {
+      title: "Motorcycle Racing Event",
+      location: "Syria,Damascus",
+      date: "April 5, 2025 – 4:00 PM",
+      image: "assets/imgs/sport1.jpg",
+      description: "A high-speed motorcycle race featuring professional riders competing on a challenging track filled with sharp turns and roaring engines.",
+      category: "Sport"
+    },
+    {
+      title: "Tech Vision Meeting",
+      location: "Aleppo",
+      date: "June 15, 2025 – 10:00 AM",
+      image: "assets/imgs/education1.jpg",
+      description: "A professional meeting for technology leaders focusing on AI development and smart solutions for the digital age.",
+      category: "Education"
+    }
+  ];
+
+  function openFeaturedEvent(index) {
+    const selected = featuredEvents[index];
+    if (selected) {
+      localStorage.setItem("selectedEvent", JSON.stringify(selected));
+      window.location.href = "event.html";
+    }
+  }
+    // === ترجمة الصفحة ===
+  const translations = {
+    en: {
+      home: "Home",
+      allEvents: "All Events",
+      about: "About",
+      contact: "Contact",
+      brand: "CityGo",
+      search: "Search",
+      searchPlaceholder: "Search for an event...",
+      teamTitle: "Our Team & Partners",
+      featuredTitle: "Featured Events This Week",
+      categories: "Quick Categories",
+      sport: "Sport",
+      music: "Music",
+      food: "Food",
+      drink: "Drink",
+      education: "Education",
+      latestTitle: "Latest Events"
+    },
+    ar: {
+      home: "الرئيسية",
+      allEvents: "كل الفعاليات",
+      about: "من نحن",
+      contact: "اتصل بنا",
+      brand: "سيتي جو",
+      search: "بحث",
+      searchPlaceholder: "ابحث عن فعالية...",
+      teamTitle: "فريقنا وشركاؤنا",
+      featuredTitle: "الفعاليات المميزة هذا الأسبوع",
+      categories: "التصنيفات السريعة",
+      sport: "رياضة",
+      music: "موسيقى",
+      food: "طعام",
+      drink: "مشروبات",
+      education: "تعليم",
+      latestTitle: "أحدث الفعاليات"
+    }
+  };
+
+  function setLanguage(lang) {
+    localStorage.setItem("language", lang);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      el.textContent = translations[lang][key];
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+      const key = el.getAttribute("data-i18n-placeholder");
+      el.setAttribute("placeholder", translations[lang][key]);
+    });
+  }
+
+  // تحميل اللغة المخزنة
+  const savedLang = localStorage.getItem("language") || "en";
+  setLanguage(savedLang);
+
+  document.getElementById("flag-ar").addEventListener("click", () => setLanguage("ar"));
+  document.getElementById("flag-en").addEventListener("click", () => setLanguage("en"));
+
+  
+</script>
+
+
+<button id="scrollTopBtn" title="Back to top">
+  <i class="bi bi-arrow-up"></i>
+</button>
+
+
+<!-- FOOTER -->
+<footer class="footer text-light py-5 mt-5">
+  <div class="container">
+    <div class="row gy-4">
+      <!-- About -->
+      <div class="col-12 col-md-4">
+        <h5 class="fw-bold mb-3">About CityGo</h5>
+        <p class="small text-light opacity-75">
+          CityGo is your central hub for local events — from culture and music to sports and education.
+        </p>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-12 col-md-4">
+        <h5 class="fw-bold mb-3">Contact Us</h5>
+        <address class="small mb-0 opacity-75">
+          Email: <a href="mailto:citygo@email.com" class="text-light text-decoration-none">CityGo@email.com</a><br>
+          Phone: <span class="text-light">012-3456789</span>
+        </address>
+      </div>
+
+      <!-- Social -->
+      <div class="col-12 col-md-4">
+        <h5 class="fw-bold mb-3">Follow Us</h5>
+        <div class="d-flex align-items-center gap-3 social-icons">
+          <a href="#" class="text-light fs-5"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-light fs-5"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-light fs-5"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-light fs-5"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-secondary my-4 opacity-25" />
+
+    <div class="text-center small opacity-75">
+      © 2026 CityGo Events Directory — All rights reserved.
+    </div>
+  </div>
+</footer>
+<script src="assets/JS/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
